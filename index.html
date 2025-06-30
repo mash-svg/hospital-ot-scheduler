@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital OT Scheduler</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/firestore.js"></script>
+  <script type="module" src="js/scheduler.js"></script>
+</head>
+<body>
+  <h1>Operation Theater Schedule Dashboard</h1>
+
+  <!-- Login Panel -->
+  <div id="login-section">
+    <h2>Admin Login</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Registration Panel -->
+<!-- Registration Panel -->
+<div id="register-section">
+    <h2>New User Register</h2>
+    <input type="email" id="regEmail" placeholder="Email" />
+    <input type="password" id="regPassword" placeholder="Password" />
+    <button onclick="register()">Register</button>
+  </div>
+  
+
+  <!-- Dashboard Panel -->
+  <div id="dashboard" style="display:none">
+    <h2>Welcome, Admin</h2>
+    <button onclick="logout()">Logout</button>
+
+    <!-- Surgery Form -->
+    <h3>Schedule a Surgery</h3>
+    <form id="surgeryForm">
+      <input type="datetime-local" id="surgeryTime" required />
+      <input type="text" id="otId" placeholder="OT ID" required />
+      <input type="text" id="anesthesia" placeholder="Anesthesia Type" required />
+      <input type="text" id="anesthesiologist" placeholder="Anesthesiologist" required />
+      <input type="text" id="surgeon" placeholder="Surgeon Name" required />
+      <input type="text" id="assistant" placeholder="Assistant (Optional)" />
+      <input type="text" id="nurses" placeholder="Nurses Involved (comma-separated)" />
+      <textarea id="prePostNotes" placeholder="Pre/Post Events"></textarea>
+      <textarea id="remarks" placeholder="Doctor Remarks"></textarea>
+      <input type="file" id="report" />
+      <textarea id="materials" placeholder="Drugs, Instruments Required"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Logs -->
+    <h3>Activity Log</h3>
+    <ul id="logList"></ul>
+
+    <!-- OT Schedules -->
+    <h3>Upcoming OT Schedules</h3>
+    <div id="scheduleContainer"></div>
+  </div>
+</body>
+</html>
